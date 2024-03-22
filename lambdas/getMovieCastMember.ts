@@ -42,7 +42,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
       };
     }
     // const parameters = event.queryStringParameters;
-    const movieId = parseInt(queryParams.movieId);
+    const movieId = queryParams?.movieId ? parseInt(queryParams.movieId) : undefined;
     let commandInput: QueryCommandInput = {
       TableName: process.env.TABLE_NAME,
     };
